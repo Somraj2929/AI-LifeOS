@@ -6,10 +6,12 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 
-const isProd = process.env.NODE_ENV === "production";
-const HOMEPAGE_CARDS_URL = isProd
-  ? "https://your-remote-source.com/homepage-cards.json"
-  : "/config/homepage-cards.json";
+// const isProd = process.env.NODE_ENV === "production";
+// const HOMEPAGE_CARDS_URL = isProd
+//   ? "https://your-remote-source.com/homepage-cards.json"
+//   : "/config/homepage-cards.json";
+
+const HOMEPAGE_CARDS_URL = "/config/homepage-cards.json";
 
 export default function Home() {
   const [tabs, setTabs] = useState([]);
