@@ -1,0 +1,83 @@
+[
+  {
+    "id": "decision-engine",
+    "title": "Decision Engine",
+    "description": "Make smarter decisions with AI-powered insights",
+    "icon": "decision-engine.svg",
+    "route": "/tabs/decision-engine",
+    "visible": true,
+    "position": 1
+  },
+  {
+    "id": "auto-learn",
+    "title": "Auto-Learn",
+    "description": "Generate learning plans tailored to your needs",
+    "icon": "auto-learn.svg",
+    "route": "/tabs/auto-learn",
+    "visible": true,
+    "position": 2
+  },
+  {
+    "id": "spends-habit-tracker",
+    "title": "Spends & Habit Tracker",
+    "description": "Monitor your habits and spending patterns",
+    "icon": "spends-habit-tracker.svg",
+    "route": "/tabs/spends-habit-tracker",
+    "visible": true,
+    "position": 3
+  },
+  {
+    "id": "digital-twin",
+    "title": "Digital Twin",
+    "description": "Your digital twin to manage your preferences",
+    "icon": "digital-twin.svg",
+    "route": "/tabs/digital-twin",
+    "visible": true,
+    "position": 4
+  },
+  {
+    "id": "travel-companion",
+    "title": "AI Travel Companion",
+    "description": "Builds itinerary, estimates budget and local travel planning",
+    "icon": "travel-companion.svg",
+    "route": "/tabs/travel-companion",
+    "visible": true,
+    "position": 5
+  },
+  {
+    "id": "task-goal-planner",
+    "title": "Task & Goal Planner",
+    "description": "Task input → structured timelines and integration with calendar",
+    "icon": "task-goal-planner.svg",
+    "route": "/tabs/task-goal-planner",
+    "visible": true,
+    "position": 6
+  },
+  {
+    "id": "mind-clarity",
+    "title": "Mind Dump → Clarity",
+    "description": "Converts messy thoughts into goals, insights, and wellness",
+    "icon": "mind-clarity.svg",
+    "route": "/tabs/mind-clarity",
+    "visible": true,
+    "position": 7
+  },
+  {
+    "id": "summarize-anything",
+    "title": "Summarize Anything",
+    "description": "Instant summarize of articles, videos, PDF via drag-drop",
+    "icon": "summarize-anything.svg",
+    "route": "/tabs/summarize-anything",
+    "visible": true,
+    "position": 8
+  },
+  {
+    "id": "mood-assistant",
+    "title": "Mood Assistant",
+    "description": "Boost your mood & mind with songs, mindfulness suggestions",
+    "icon": "mood-assistant.svg",
+    "route": "/tabs/mood-assistant",
+    "visible": true,
+    "position": 9
+  }
+]
