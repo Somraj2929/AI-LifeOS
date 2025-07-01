@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
+import PongLoader from "./components/PongLoader";
 
 // const isProd = process.env.NODE_ENV === "production";
 // const HOMEPAGE_CARDS_URL = isProd
@@ -41,7 +42,7 @@ export default function Home() {
       <HeroSection />
       <div className="px-2">
         {loading ? (
-          <p className="text-center text-gray-600 mt-4">Loading...</p>
+          <PongLoader className="mt-4" />
         ) : (
           tabs.map((tab) => (
             <Link key={tab.id} href={tab.route} passHref>
