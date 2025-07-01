@@ -31,13 +31,13 @@ export default function DecisionResults({ data }) {
           </span>
         </button>
         {showFactors && (
-          <ul className="text-[15px] mt-2 space-y-2 ">
+          <ul className="text-[16px] mt-2 space-y-2 ">
             {Object.entries(data.factors).map(([category, details]) => (
               <li key={category}>
-                <strong className="text-black underline">{category}:</strong>
+                <strong className="text-black">{category}:</strong>
                 <ul className="list-disc ml-4 space-y-1">
                   {Object.entries(details).map(([option, desc]) => (
-                    <li key={option} className="text-gray-800 leading-4">
+                    <li key={option} className="text-gray-800">
                       <strong className="text-black">{option}:</strong> {desc}
                     </li>
                   ))}
