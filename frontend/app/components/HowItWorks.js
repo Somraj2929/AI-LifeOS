@@ -5,10 +5,10 @@ export default function HowItWorks() {
     <section className="p-4">
       <hr className="mb-4 mt-2 border-gray-400" />
       <div className="flex items-center mb-2">
-        <h2 className="font-bold text-black text-xl mr-1">How it works..</h2>
-        <InformationCircleIcon className="h-5 w-5 text-gray-700" />
+        <h2 className="font-bold text-white text-xl mr-1">How it works</h2>
+        <InformationCircleIcon className="h-5 w-5 text-white" />
       </div>
-      <ul className="list-disc list-inside text-sm text-gray-800 space-y-2 p-2">
+      <ul className="list-disc list-inside text-sm text-gray-200 space-y-2 p-2">
         <li>
           <span className="font-bold">Data Analysis:</span> It gathers and
           processes vast amounts of relevant data associated with each option

@@ -21,19 +21,19 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-gray-300 px-4 py-4 flex items-center justify-between w-full h-[90px] relative z-20">
+      <nav className="bg-black/70 backdrop-blur-md border-b border-white/30 px-4 py-4 flex items-center justify-between w-full h-[90px] relative z-20">
         <button aria-label="Menu" onClick={() => setIsMenuOpen(true)}>
-          <Bars4Icon className="h-6 w-6 text-black" />
+          <Bars4Icon className="h-6 w-6 text-white" />
         </button>
         <Link href="/">
-          <h1 className="text-[28px] font-bold text-black">AI LifeOS</h1>
+          <h1 className="text-[28px] font-bold text-white">AI LifeOS</h1>
         </Link>
         <Image
-          src="/icons/user-profile.svg"
+          src="/icons/user-circle.svg"
           alt="User Icon"
           width={36}
           height={36}
-          className="rounded-full hover:opacity-80 transition-opacity"
+          className="rounded-full opacity-90 hover:opacity-100 transition"
         />
       </nav>
 
@@ -53,16 +53,16 @@ export default function Navbar() {
 
         {/* drawer */}
         <div
-          className={`fixed top-0 left-0 h-screen p-2 pt-4 pr-4 bg-white shadow-xl overflow-y-auto transition-transform duration-500 ease-in-out ${
+          className={`fixed top-0 left-0 h-screen p-2 pt-4 pr-4 bg-black text-white backdrop-blur-md border-r border-white/10 shadow-xl overflow-y-auto transition-transform duration-500 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="absolute top-3 right-3"
+            className="absolute top-4 right-4 z-10"
             aria-label="Close menu"
           >
-            <XMarkIcon className="h-6 w-6 text-white bg-gray-500 rounded-lg" />
+            <XMarkIcon className="h-6 w-6 text-white bg-white/30 hover:bg-white/40 rounded-lg p-1" />
           </button>
           <HamburgerMenu />
         </div>

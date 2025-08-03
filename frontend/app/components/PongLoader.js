@@ -1,11 +1,11 @@
 export default function PongLoader() {
   return (
-    <div className="flex justify-center items-center h-[224px] bg-gray-100 mb-4 mt-[-10px]">
+    <div className="flex justify-center items-center h-[224px] bg-black/10 mb-4 mt-[-10px]">
       <div className="relative w-[64px] h-[64px]">
         {/* Left paddle */}
-        <div className="absolute left-0 top-[20px] w-2 h-14 bg-black rounded animate-paddle-left" />
+        <div className="absolute left-0 top-[20px] w-2 h-14 bg-white rounded animate-paddle-left" />
         {/* Right paddle */}
-        <div className="absolute right-0 top-[10px] w-2 h-14 bg-black rounded animate-paddle-right" />
+        <div className="absolute right-0 top-[10px] w-2 h-14 bg-white rounded animate-paddle-right" />
         {/* Ball */}
         <div className="absolute top-[36px] left-[1px] w-3 h-3 bg-red-500 rounded-full animate-pong-ball" />
       </div>

@@ -1,0 +1,104 @@
+{
+  "tripSummary": {
+    "from": "Delhi, India",
+    "to": "Chakrata, Uttarakhand, India",
+    "dates": {
+      "start": "2025-08-22",
+      "end": "2025-08-26"
+    },
+    "preferences": ["Bus", "Local (Cabs)"]
+  },
+  "travelArrangements": [
+    {
+      "mode": "Bus",
+      "provider": "UTC Volvo Bus",
+      "departureLocation": "Delhi ISBT",
+      "arrivalLocation": "Chakrata Bus Stand",
+      "departure": "2025-08-22T06:00:00+05:30",
+      "arrival": "2025-08-22T16:00:00+05:30",
+      "duration": "10h",
+      "price": "₹800",
+      "bookingLink": "https://www.utconline.in"
+    },
+    {
+      "mode": "Train",
+      "trainName": "Dehradun Express",
+      "departureLocation": "Delhi Station",
+      "arrivalLocation": "Dehradun Station",
+      "departure": "2025-08-22T05:30:00+05:30",
+      "arrival": "2025-08-22T12:30:00+05:30",
+      "duration": "7h",
+      "price": "₹600",
+      "bookingLink": "https://www.irctc.co.in"
+    },
+    {
+      "mode": "Flight",
+      "airline": "IndiGo",
+      "departureLocation": "Delhi Airport",
+      "arrivalLocation": "Dehradun Airport",
+      "departure": "2025-08-22T08:00:00+05:30",
+      "arrival": "2025-08-22T09:00:00+05:30",
+      "duration": "1h",
+      "price": "₹3000",
+      "bookingLink": "https://www.goindigo.in"
+    },
+    {
+      "mode": "Cab",
+      "purpose": "Local Sightseeing",
+      "bookingOption": "Available via Chakrata Taxi Services",
+      "approxCost": "₹1800 per day",
+      "contact": "+91 9876543210"
+    }
+  ],
+  "itinerary": [
+    {
+      "day": "Day 1",
+      "date": "2025-08-22",
+      "location": "Chakrata, Uttarakhand",
+      "title": "Arrival & Exploration",
+      "activities": [
+        "Depart from Delhi by morning bus to Chakrata.",
+        "Arrive and check-in at hotel.",
+        "Evening visit to Tiger Falls.",
+        "Relax at local café in Chakrata market."
+      ],
+      "accommodation": {
+        "name": "Hotel Hill View, Chakrata",
+        "rating": 4.2,
+        "pricePerNight": "₹1800",
+        "photoUrl": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=PHOTO_REF&key=YOUR_API_KEY",
+        "address": "Main Market, Chakrata"
+      },
+      "mapSnapshot": "https://maps.googleapis.com/maps/api/staticmap?size=600x400&path=Delhi|Chakrata&key=YOUR_API_KEY"
+    },
+    {
+      "day": "Day 2",
+      "date": "2025-08-23",
+      "location": "Moila Top, Chakrata",
+      "title": "Adventure Day",
+      "activities": [
+        "Breakfast at hotel.",
+        "Visit Budher Caves and Moila Top.",
+        "Picnic lunch near Deoban Forest.",
+        "Sunset point at Chilmiri Neck."
+      ]
+    },
+    {
+      "day": "Day 3",
+      "date": "2025-08-24",
+      "location": "Delhi, India",
+      "title": "Return",
+      "activities": [
+        "Morning breakfast and checkout.",
+        "Free time for souvenirs or walk in the town.",
+        "Take afternoon bus/cab back to Delhi."
+      ]
+    }
+  ],
+  "suggestedPlaces": [
+    "Tiger Falls Chakrata",
+    "Deoban Chakrata",
+    "Chilmiri Neck"
+  ],
+  "notes": "Make sure to carry light woolens and rain protection as weather is unpredictable in Chakrata."
+}

@@ -22,10 +22,10 @@ export default function HamburgerMenu() {
   }, []);
 
   return (
-    <aside className="w-auto bg-white p-2">
+    <aside className="w-full max-w-xs bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 text-white">
       {/* Profile */}
-      <div className="flex items-center gap-4 h-[90px] pl-1">
-        <div className="bg-yellow-300 w-[66px] h-[66px] rounded-xl flex items-center justify-center">
+      <div className="flex items-center gap-4 h-[90px] mb-2">
+        <div className="bg-white/90 w-[66px] h-[66px] rounded-xl flex items-center justify-center border border-white/10">
           <Image
             src="/icons/hb-user-profile.svg"
             alt="User"
@@ -34,55 +34,64 @@ export default function HamburgerMenu() {
           />
         </div>
         <div>
-          <p className="font-semibold text-xl text-black">Somraj Bishnoi</p>
-          <p className="text-[15px] font-extralight text-gray-600 leading-relaxed tracking-wide">
+          <p className="font-semibold text-xl">Somraj Bishnoi</p>
+          <p className="text-sm text-gray-300 tracking-wide leading-tight">
             +91 8058828957
           </p>
         </div>
       </div>
-      <hr className="my-2 border-gray-400" />
+
+      <hr className="my-3 border-white/20" />
 
       {/* Dynamic menu items */}
-      <nav className="flex flex-col  ">
+      <nav className="flex flex-col space-y-2">
         {tabs.map((tab) => (
           <Link
             key={tab.id}
             href={tab.route}
-            className="flex items-center gap-4 text-black text-xl font-semibold hover:bg-amber-100 h-[45px] pl-5 rounded-xl transition-colors"
+            className="flex items-center gap-4 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition"
           >
             <Image
               src={`/icons/${tab.icon}`}
               alt={tab.title}
               width={26}
               height={26}
+              className="object-contain bg-white rounded-lg p-1"
             />
-            <span>{tab.title}</span>
+            <span className="text-white font-medium">{tab.title}</span>
           </Link>
         ))}
       </nav>
 
-      <hr className="my-2 border-gray-400" />
+      <hr className="my-3 border-white/20" />
 
       {/* Static items */}
-      <nav className="flex flex-col ">
+      <nav className="flex flex-col space-y-2">
         <Link
           href="/support"
-          className="flex items-center gap-4 text-black text-xl font-semibold hover:bg-amber-100 h-[45px] pl-5 rounded-xl transition-colors "
+          className="flex items-center gap-4 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition"
         >
           <Image
             src="/icons/support.svg"
             alt="Support"
             width={26}
             height={26}
+            className="object-contain bg-white rounded-lg p-1"
           />
-          <span>Support</span>
+          <span className="text-white font-medium">Support</span>
         </Link>
         <Link
           href="/logout"
-          className="flex items-center gap-4 text-black text-xl font-semibold hover:bg-amber-100 h-[45px] pl-5 rounded-xl transition-colors "
+          className="flex items-center gap-4 px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition"
         >
-          <Image src="/icons/logout.svg" alt="Log out" width={26} height={26} />
-          <span>Log out</span>
+          <Image
+            src="/icons/logout.svg"
+            alt="Log out"
+            width={26}
+            height={26}
+            className="object-contain bg-white rounded-lg p-1"
+          />
+          <span className="text-white font-medium">Log out</span>
         </Link>
       </nav>
     </aside>

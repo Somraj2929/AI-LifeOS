@@ -14,12 +14,19 @@ function DecisionEnginePage() {
 
   const handleFormSubmit = async (options) => {
     setStatus("loading");
+    console.log("Submitting options:", options);
 
     // simulate backend 5s
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    //await new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
-      const res = await fetch("/config/decision-result.json");
+      const res = await fetch("http://localhost:8081/decision-engine", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(options),
+      });
       const data = await res.json();
       setDecisionData(data);
       setStatus("results");
@@ -30,7 +37,7 @@ function DecisionEnginePage() {
   };
 
   return (
-    <div className="flex flex-col items-center j min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center  min-h-screen bg-black/70 text-white">
       <Navbar />
       <DecisionForm status={status} onSubmit={handleFormSubmit} />
       {status === "idle" && <HowItWorks />}

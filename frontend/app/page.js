@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import PongLoader from "./components/PongLoader";
@@ -38,39 +36,36 @@ export default function Home() {
   }, [fetchTabs]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-black text-white pb-4 py-4 space-y-2">
       <HeroSection />
-      <div className="px-2">
+      <div className="px-2 bg-white/5 rounded-xl shadow-lg">
         {loading ? (
           <PongLoader className="mt-4" />
         ) : (
           tabs.map((tab) => (
-            <Link key={tab.id} href={tab.route} passHref>
-              <div className="flex items-center justify-between h-[100px] hover:bg-gray-50 rounded-md transition">
-                <div className="flex items-center gap-[20px]">
-                  <div className="ml-4 flex items-center justify-center w-[66px] h-[66px] bg-gray-300 rounded-md">
-                    <Image
-                      src={`/icons/${tab.icon ?? "default.svg"}`}
-                      alt={tab.title ?? "Tab"}
-                      width={36}
-                      height={36}
-                    />
-                  </div>
-                  <div>
-                    <h2 className="font-bold text-black text-[16px]">
-                      {tab.title || "Untitled"}
-                    </h2>
-                    <p className="text-[13px] text-gray-600 max-h-[36px] max-w-[190px] overflow-hidden">
-                      {tab.description || ""}
-                    </p>
-                  </div>
+            <Link key={tab.id} href={tab.route}>
+              <div className="relative flex items-center justify-between p-4 mb-1 md:p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-sm hover:shadow-lg transition-all group hover:ring-1 hover:ring-blue-500/50">
+                <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg group-hover:bg-white/20 transition">
+                  <img
+                    src={`/icons/${tab.icon}`}
+                    alt={tab.title}
+                    className="w-6 h-6 object-contain"
+                  />
                 </div>
-                <span className="text-[13px] font-medium mr-4 flex items-center text-gray-700 hover:text-gray-900">
-                  Explore
-                  <ChevronRightIcon className="h-5 w-5 text-black ml-[-4px]" />
-                </span>
+
+                <div className="ml-4 flex-1">
+                  <h3 className="text-white text-base font-medium leading-tight">
+                    {tab.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1 leading-snug line-clamp-2">
+                    {tab.description}
+                  </p>
+                </div>
+
+                <div className="ml-3 text-blue-400 text-sm font-medium group-hover:text-blue-500 transition">
+                  View all →
+                </div>
               </div>
-              <div className="border-t border-gray-400 mx-4" />
             </Link>
           ))
         )}

@@ -10,8 +10,8 @@ export default function DecisionResults({ data }) {
       <hr className="mb-4 mt-2 border-gray-400" />
       {/* AI Response */}
       <section className="mb-4">
-        <h2 className="font-bold text-xl text-black mb-1">AI Response</h2>
-        <p className="text-gray-800 text-[16px]">{data.decision}</p>
+        <h2 className="font-bold text-xl text-white mb-1">AI Response</h2>
+        <p className="text-gray-200 text-[16px]">{data.decision}</p>
       </section>
 
       <hr className="my-1 border-gray-400" />
@@ -19,14 +19,14 @@ export default function DecisionResults({ data }) {
       <section className="pt-2 mb-4">
         <button
           onClick={() => setShowFactors(!showFactors)}
-          className="flex justify-between items-center w-full font-bold text-xl text-black mb-1"
+          className="flex justify-between items-center w-full font-bold text-xl text-white mb-1"
         >
           Factors Considered
           <span>
             {showFactors ? (
-              <ChevronUpIcon className="h-6 w-6 text-black mr-1" />
+              <ChevronUpIcon className="h-6 w-6 text-white mr-1" />
             ) : (
-              <ChevronDownIcon className="h-6 w-6 text-black mr-1" />
+              <ChevronDownIcon className="h-6 w-6 text-white mr-1" />
             )}
           </span>
         </button>
@@ -34,11 +34,11 @@ export default function DecisionResults({ data }) {
           <ul className="text-[16px] mt-2 space-y-2 ">
             {Object.entries(data.factors).map(([category, details]) => (
               <li key={category}>
-                <strong className="text-black">{category}:</strong>
+                <strong className="text-white">{category}:</strong>
                 <ul className="list-disc ml-4 space-y-1">
                   {Object.entries(details).map(([option, desc]) => (
-                    <li key={option} className="text-gray-800">
-                      <strong className="text-black">{option}:</strong> {desc}
+                    <li key={option} className="text-gray-820">
+                      <strong className="text-white">{option}:</strong> {desc}
                     </li>
                   ))}
                 </ul>
@@ -50,7 +50,7 @@ export default function DecisionResults({ data }) {
       <hr className="my-1 border-gray-400" />
       {/* Suggestions */}
       <section className="pt-2">
-        <h3 className="font-bold text-xl text-black mb-2">Suggestions</h3>
+        <h3 className="font-bold text-xl text-white mb-2">Suggestions</h3>
         <AutoSizeTextarea value={data.suggestions} />
       </section>
     </div>

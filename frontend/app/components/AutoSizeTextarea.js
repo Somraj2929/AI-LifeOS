@@ -14,7 +14,7 @@ export default function AutoSizeTextarea({ value }) {
     <textarea
       ref={textareaRef}
       readOnly
-      className="w-full p-2 border rounded text-gray-800 text-[16px] resize-none overflow-hidden"
+      className="w-full p-2 border rounded text-gray-200 text-[16px] resize-none overflow-hidden"
       value={value}
     />
   );
