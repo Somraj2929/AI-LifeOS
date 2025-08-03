@@ -98,7 +98,7 @@ export default function WeatherCard({
   if (!info) return null;
 
   return (
-    <div className="bg-white/5 backdrop-blur-md text-white p-5 rounded-2xl shadow-lg w-full bg-gradient-to-r from-slate-800 to-slate-600">
+    <div className="bg-white/5 backdrop-blur-md text-white p-4 rounded-2xl shadow-lg w-full bg-gradient-to-r from-slate-800 to-slate-600">
       <div className="flex items-center gap-4">
         <Image
           src={`https:${info.icon}`}

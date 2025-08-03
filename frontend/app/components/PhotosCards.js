@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
 
 export default function PhotosCards({ placeNames = [] }) {
   const [photos, setPhotos] = useState([]);
@@ -43,11 +43,12 @@ export default function PhotosCards({ placeNames = [] }) {
           <h3 className="text-xl font-bold mb-3 text-white">{place.title}</h3>
 
           <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            modules={[Autoplay, Pagination]}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             loop={true}
             spaceBetween={16}
             slidesPerView={1}
+            pagination={{ clickable: true }}
             className="rounded-lg"
           >
             {place.photoUrls.map((url, idx) => (
