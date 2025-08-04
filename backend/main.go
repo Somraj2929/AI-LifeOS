@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 
-	"github.com/Somraj2929/AI-LifeOS/backend/controllers"
+	"github.com/Somraj2929/AI-LifeOS/backend/routes"
 )
 
 func main() {
@@ -31,7 +31,7 @@ func main() {
 		c.Next()
 	})
 
-	r.POST("/decision-engine", controllers.DecisionEngineHandler)
+	routes.RegisterRoutes(r)
 
 	port := os.Getenv("PORT")
 	if port == "" {

@@ -4,6 +4,7 @@ import TravelOptions from "@/app/components/TravelOptions";
 import PhotosCards from "@/app/components/PhotosCards";
 import Navbar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
+import InfoCard from "@/app/components/InfoCard";
 import { useEffect, useState, Link } from "react";
 
 export default function Itinerary() {
@@ -17,18 +18,37 @@ export default function Itinerary() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/config/travel-plan.json");
-        const data = await response.json();
-        setData(data);
-        setTripSummary(data.tripSummary || {});
-      } catch (error) {
-        console.error("Error fetching travel plan:", error);
-      }
-    };
-    fetchData();
+    const stored = localStorage.getItem("itinerary");
+    if (stored) {
+      const data = JSON.parse(stored);
+      setData(data);
+      setTripSummary(data.tripSummary || {});
+    } else {
+      console.error("No itinerary data found in localStorage.");
+    }
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await fetch("/config/travel-plan.json");
+    //     const data = await response.json();
+    //     setData(data);
+    //     setTripSummary(data.tripSummary || {});
+    //   } catch (error) {
+    //     console.error("Error fetching travel plan:", error);
+    //   }
+    // };
+    // fetchData();
   }, []);
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-5">
+        <h1 className="text-2xl font-bold mb-4">
+          No itinerary data available.
+        </h1>
+        <p className="text-gray-400">Please generate a travel plan first.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -40,6 +60,11 @@ export default function Itinerary() {
             <p className="mb-2">
               <strong>From:</strong> {tripSummary.from}
             </p>
+            {tripSummary.stops && tripSummary.stops.length > 0 && (
+              <p className="mb-2">
+                <strong>Stops:</strong> {tripSummary.stops.join(", ")}
+              </p>
+            )}
             <p className="mb-2">
               <strong>To:</strong> {tripSummary.to}
             </p>
@@ -56,8 +81,17 @@ export default function Itinerary() {
               {tripSummary.preferences?.join(", ")}
             </p>
           </div>
+          <div className="flex justify-end">
+            <button
+              onClick={() => window.history.back()}
+              className="text-md text-blue-400 hover:underline mt-4 justify-end bg-white/10 px-3 py-1 rounded-full transition"
+            >
+              Back
+            </button>
+          </div>
         </div>
         <DayWisePlan plan={data.itinerary} />
+        <InfoCard info={data.additionalInfo} />
         <TravelOptions options={data.travelArrangements} />
         <PhotosCards placeNames={data.suggestedPlaces} />
       </div>

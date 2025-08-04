@@ -1,20 +1,23 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
-export default function TravelForm({ onSubmit, status }) {
+export default function TravelForm() {
+  const router = useRouter();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [fromLocation, setFromLocation] = useState("");
   const [toLocation, setToLocation] = useState("");
   const [stops, setStops] = useState([]);
   const [preferences, setPreferences] = useState([]);
-  const [additional, setAdditional] = useState("");
+  const [additionalReq, setAdditional] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fromRef = useRef(null);
   const toRef = useRef(null);
   const stopRefs = useRef([]);
 
-  const travelOptions = ["Flight", "Train", "Bus", "Local (Cabs)"];
+  const travelOptions = ["Flight", "Train", "Bus", "Cab"];
 
   useEffect(() => {
     if (window.google) {
@@ -65,7 +68,7 @@ export default function TravelForm({ onSubmit, status }) {
     stopRefs.current[index] = null;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fromLocation || !toLocation || !startDate || !endDate) {
       alert("Please fill in all required fields.");
@@ -78,10 +81,26 @@ export default function TravelForm({ onSubmit, status }) {
       stops: stops.filter((s) => s.trim() !== ""),
       dates: { from: startDate, to: endDate },
       preferences,
-      additional,
+      additionalReq,
     };
-    console.log("Submitting travel plan:", payload);
-    onSubmit(payload);
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:8081/generate-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      // ✅ Store to localStorage
+      localStorage.setItem("itinerary", JSON.stringify(data));
+      setLoading(false);
+      router.push("/tabs/travel-planner/itinerary");
+    } catch (error) {
+      console.error("Error generating itinerary:", error);
+      setLoading(false);
+      alert("Failed to generate itinerary. Please try again.");
+    }
   };
 
   return (
@@ -182,7 +201,7 @@ export default function TravelForm({ onSubmit, status }) {
       {/* Additional Note */}
       <textarea
         placeholder="Any additional details..."
-        value={additional}
+        value={additionalReq}
         onChange={(e) => setAdditional(e.target.value)}
         className="w-full h-24 px-4 py-3 rounded-lg bg-white/10 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
@@ -192,9 +211,33 @@ export default function TravelForm({ onSubmit, status }) {
         type="submit"
         className="w-full bg-blue-700 hover:bg-blue-800 text-white text-lg font-semibold py-3 rounded transition"
       >
-        {status === "loading"
-          ? "Planning Itinerary..."
-          : "Generate Travel Plan"}
+        {loading ? (
+          <div className="flex justify-center items-center gap-2">
+            <svg
+              className="animate-spin h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8z"
+              ></path>
+            </svg>
+            Planning Itinerary...
+          </div>
+        ) : (
+          "Generate Travel Plan"
+        )}
       </button>
     </form>
   );

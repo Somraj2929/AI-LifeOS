@@ -61,15 +61,7 @@
         "Arrive and check-in at hotel.",
         "Evening visit to Tiger Falls.",
         "Relax at local café in Chakrata market."
-      ],
-      "accommodation": {
-        "name": "Hotel Hill View, Chakrata",
-        "rating": 4.2,
-        "pricePerNight": "₹1800",
-        "photoUrl": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=PHOTO_REF&key=YOUR_API_KEY",
-        "address": "Main Market, Chakrata"
-      },
-      "mapSnapshot": "https://maps.googleapis.com/maps/api/staticmap?size=600x400&path=Delhi|Chakrata&key=YOUR_API_KEY"
+      ]
     },
     {
       "day": "Day 2",
@@ -100,5 +92,5 @@
     "Deoban Chakrata",
     "Chilmiri Neck"
   ],
-  "notes": "Make sure to carry light woolens and rain protection as weather is unpredictable in Chakrata."
+  "additionalInfo": "Make sure to carry light woolens and rain protection as weather is unpredictable in Chakrata."
 }
