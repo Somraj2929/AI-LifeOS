@@ -40,10 +40,10 @@
     "position": 4
   },
   {
-    "id": "travel-companion",
-    "title": "AI Travel Companion",
+    "id": "travel-planner",
+    "title": "AI Travel Planner",
     "icon": "hb-travel-companion.svg",
-    "route": "/tabs/travel-companion",
+    "route": "/tabs/travel-planner",
     "visible": true,
     "position": 5
   },
