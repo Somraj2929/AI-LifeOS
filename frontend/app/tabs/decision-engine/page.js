@@ -20,13 +20,16 @@ function DecisionEnginePage() {
     //await new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
-      const res = await fetch("http://localhost:8081/decision-engine", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(options),
-      });
+      const res = await fetch(
+        "https://ai-lifeos-production.up.railway.app/decision-engine",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(options),
+        }
+      );
       const data = await res.json();
       setDecisionData(data);
       setStatus("results");
