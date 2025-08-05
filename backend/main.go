@@ -1,22 +1,22 @@
 package main
 
 import (
-	"log"
+	// "log"
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 
 	"github.com/Somraj2929/AI-LifeOS/backend/routes"
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	} else {
-		log.Println("Environment variables loaded successfully")
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// } else {
+	// 	log.Println("Environment variables loaded successfully")
+	// }
 
 	r := gin.Default()
 
