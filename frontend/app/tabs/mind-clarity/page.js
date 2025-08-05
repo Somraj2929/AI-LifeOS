@@ -2,7 +2,7 @@ import Footer from "@/app/components/Footer";
 import InDev from "@/app/components/InDev";
 import Navbar from "@/app/components/NavBar";
 
-export default function Test() {
+export default function MindClarity() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
       <Navbar />

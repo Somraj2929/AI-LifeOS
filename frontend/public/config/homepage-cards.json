@@ -42,7 +42,7 @@
     "icon": "travel-companion.svg",
     "route": "/tabs/travel-planner",
     "visible": true,
-    "position": 5
+    "position": 0
   },
   {
     "id": "task-goal-planner",

@@ -99,12 +99,20 @@ export default function TravelOptions({ options }) {
                       </span>{" "}
                       {arrangement.approxCost}
                     </p>
-                    {arrangement.contact && (
+                    {arrangement.contact != "null" && (
                       <p className="text-sm">
                         <span className="font-medium text-gray-300">
                           Contact:
                         </span>{" "}
                         {arrangement.contact}
+                      </p>
+                    )}
+                    {arrangement.contact === "null" && (
+                      <p className="text-sm text-gray-400">
+                        <span className="font-medium text-gray-300">
+                          Contact:
+                        </span>{" "}
+                        Not available
                       </p>
                     )}
                   </div>

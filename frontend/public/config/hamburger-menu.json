@@ -13,7 +13,7 @@
     "icon": "hb-decision-engine.svg",
     "route": "/tabs/decision-engine",
     "visible": true,
-    "position": 1
+    "position": 2
   },
   {
     "id": "auto-learn",
@@ -21,7 +21,7 @@
     "icon": "hb-auto-learn.svg",
     "route": "/tabs/auto-learn",
     "visible": true,
-    "position": 2
+    "position": 3
   },
   {
     "id": "spends-habit-tracker",
@@ -29,7 +29,7 @@
     "icon": "hb-spends-habit-tracker.svg",
     "route": "/tabs/spends-habit-tracker",
     "visible": true,
-    "position": 3
+    "position": 4
   },
   {
     "id": "digital-twin",
@@ -37,7 +37,7 @@
     "icon": "hb-digital-twin.svg",
     "route": "/tabs/digital-twin",
     "visible": true,
-    "position": 4
+    "position": 5
   },
   {
     "id": "travel-planner",
@@ -45,7 +45,7 @@
     "icon": "hb-travel-companion.svg",
     "route": "/tabs/travel-planner",
     "visible": true,
-    "position": 5
+    "position": 1
   },
   {
     "id": "task-goal-planner",
@@ -75,7 +75,7 @@
     "id": "mood-assistant",
     "title": "Mood Assistant",
     "icon": "hb-mood-assistant.svg",
-    "route": "/tabs/most-assistant",
+    "route": "/tabs/mood-assistant",
     "visible": true,
     "position": 9
   }

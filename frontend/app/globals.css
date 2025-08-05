@@ -19,3 +19,45 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+.font-specific {
+  font-family: "Inter", sans-serif;
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+.floating-2 {
+  animation: float 4s ease-in-out infinite 1s;
+}
+.floating-3 {
+  animation: float 5s ease-in-out infinite 0.5s;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+.btn-3d {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+.btn-3d:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+}
+.btn-3d:active {
+  transform: translateY(1px);
+}

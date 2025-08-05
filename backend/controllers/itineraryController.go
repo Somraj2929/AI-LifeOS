@@ -147,14 +147,15 @@ func buildItineraryPrompt(req ItineraryRequest) string {
 }
 
 Guidelines:
-1. Include day titles like 'Arrival Day', 'Adventure Day', 'Cultural Walk'.
-2. Use additionalReq to enrich the 'activities' for each day.
+1. Include unique day titles for each day like "Adventure Awaits", "Cultural Exploration", etc. keep it creative.
+2. Use additionalReq to enrich the 'activities' & 'suggestedPlaces' for each day or destination/stop.
 3. If stops array is empty, skip stop planning.
 4. Provide minimum 2-3 good places for final destination and 1 for each stop.
-5. Match modes of travel only from preferences list.
-6. Include total travel distances if possible in activities.
-7. Make sure to generate a complete itinerary with all required fields including return daywise activities.
-8. No explanation or markdown. Only JSON.
+5. Match modes of travel only from preferences list & provide accurate data from reliable sources.
+6. Provide correct contact details for cab booking if available. if not, use 'null'.
+7. Include total travel distances if possible in activities.
+8. Make sure to generate a complete itinerary with all required fields including depature day & return daywise activities.
+9. No explanation or markdown. Only JSON.
 `)
 
 	return sb.String()
