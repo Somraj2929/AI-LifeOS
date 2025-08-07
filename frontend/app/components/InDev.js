@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export default function InDev() {
-  const targetDate = "2025-08-09T00:00:00+05:30";
+  const targetDate = "2025-08-12T00:00:00+05:30";
   const [isVisible, setIsVisible] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
