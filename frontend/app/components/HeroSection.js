@@ -4,7 +4,7 @@ import React from "react";
 function HeroSection() {
   return (
     <section className="relative w-full bg-black text-white flex items-center justify-center px-2 md:px-8">
-      <div className="w-full max-w-xl bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center shadow-lg relative">
+      <div className="w-full md:w-1/2 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center shadow-lg relative">
         {/* Profile Icon */}
         <div className="absolute top-4 right-4">
           <Image

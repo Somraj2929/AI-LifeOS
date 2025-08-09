@@ -151,7 +151,7 @@ Guidelines:
 2. Use additionalReq to enrich the 'activities' & 'suggestedPlaces' for each day or destination/stop.
 3. If stops array is empty, skip stop planning.
 4. Provide minimum 2-3 good places for final destination and 1 for each stop.
-5. Match modes of travel only from preferences list & provide accurate data from reliable sources.
+5. Match modes of travel only from preferences list & provide accurate data from reliable sources. Use Websearch to get accurate data for travel details and don't use your own database"
 6. Provide correct contact details for cab booking if available. if not, use 'null'.
 7. Include total travel distances if possible in activities.
 8. Make sure to generate a complete itinerary with all required fields including depature day & return daywise activities.

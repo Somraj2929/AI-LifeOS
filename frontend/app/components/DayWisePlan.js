@@ -10,7 +10,7 @@ export default function DayWisePlan({ plan }) {
   return (
     <>
       {plan && plan.length > 0 ? (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:w-1/2">
           {plan.map((day, index) => (
             <div key={index} className="bg-white/10 p-4 rounded-lg">
               <WeatherCard location={day.location} date={day.date} />

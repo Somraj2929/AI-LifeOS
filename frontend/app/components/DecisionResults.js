@@ -6,7 +6,7 @@ export default function DecisionResults({ data }) {
   const [showFactors, setShowFactors] = useState(false);
 
   return (
-    <div>
+    <div className="m-2 md:m-[-1px]">
       <hr className="mb-4 mt-2 border-gray-400" />
       {/* AI Response */}
       <section className="mb-4">

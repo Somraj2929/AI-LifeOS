@@ -43,8 +43,12 @@ export default function Home() {
           <PongLoader className="mt-4" />
         ) : (
           tabs.map((tab) => (
-            <Link key={tab.id} href={tab.route}>
-              <div className="relative flex items-center justify-between p-4 mb-1 md:p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-sm hover:shadow-lg transition-all group hover:ring-1 hover:ring-blue-500/50">
+            <Link
+              key={tab.id}
+              href={tab.route}
+              className="flex items-center md:justify-center justify-between"
+            >
+              <div className="relative md:w-1/2 flex items-center justify-between p-4 mb-1 md:p-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-sm hover:shadow-lg transition-all group hover:ring-1 hover:ring-blue-500/50">
                 <div className="w-12 h-12 flex items-center justify-center bg-white rounded-lg group-hover:bg-white/20 transition">
                   <img
                     src={`/icons/${tab.icon}`}
@@ -70,7 +74,7 @@ export default function Home() {
           ))
         )}
         {tabs.length === 0 && !loading && (
-          <p className="text-center text-gray-600 mt-4">
+          <p className="text-center text-gray-600 mt-4 md:w-1/2">
             No tabs available. Please check your configuration.
           </p>
         )}

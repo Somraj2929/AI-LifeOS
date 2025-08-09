@@ -43,7 +43,7 @@ export default function Itinerary() {
     <>
       <Navbar />
       <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white p-5">
-        <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md w-full p-8 rounded-2xl shadow-xl border border-white/10 text-white mb-4">
+        <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md w-full md:w-1/2 p-8 rounded-2xl shadow-xl border border-white/10 text-white mb-4">
           <h1 className="text-3xl font-extrabold mb-6 flex items-center gap-2">
             🧭 Trip Summary
           </h1>

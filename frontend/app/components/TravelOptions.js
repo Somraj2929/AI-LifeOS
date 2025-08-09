@@ -15,7 +15,7 @@ export default function TravelOptions({ options }) {
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-md border border-white/10 text-white p-5 w-full rounded-2xl shadow-lg my-6">
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 text-white p-5 w-full md:w-1/2 rounded-2xl shadow-lg my-6">
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-2xl font-bold mb-4 border-b border-white/10 pb-2">
           Travel Arrangements

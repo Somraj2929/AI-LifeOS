@@ -3,6 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { CgArrowLongRightC } from "react-icons/cg";
 
+const formatDateISO = (date) => date.toISOString().split("T")[0];
+const today = formatDateISO(new Date());
+const maxDate = formatDateISO(
+  new Date(new Date().setDate(new Date().getDate() + 300))
+);
+
 export default function TravelForm() {
   const router = useRouter();
   const [startDate, setStartDate] = useState("");
@@ -13,8 +19,9 @@ export default function TravelForm() {
   const [preferences, setPreferences] = useState([]);
   const [additionalReq, setAdditional] = useState("");
   const [loading, setLoading] = useState(false);
-  // const [isItineraryAvailable, setIsItineraryAvailable] = useState(false);
   const [lastItinerary, setLastItinerary] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [tempEndDate, setTempEndDate] = useState("");
 
   const fromRef = useRef(null);
   const toRef = useRef(null);
@@ -82,6 +89,38 @@ export default function TravelForm() {
     stopRefs.current[index] = null;
   };
 
+  const handleStartDateChange = (e) => {
+    const newStart = e.target.value;
+    setStartDate(newStart);
+
+    // If endDate is before startDate, reset it
+    if (!endDate || endDate < newStart) {
+      setEndDate("");
+    }
+  };
+
+  const handleEndDateChange = (e) => {
+    const newEnd = e.target.value;
+    setEndDate(newEnd);
+
+    if (startDate && newEnd === startDate) {
+      setTempEndDate(newEnd);
+      setShowModal(true);
+    } else {
+      setEndDate(newEnd);
+    }
+  };
+
+  const proceedSameDay = () => {
+    setEndDate(tempEndDate);
+    setShowModal(false);
+  };
+
+  const cancelSameDay = () => {
+    setEndDate("");
+    setShowModal(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fromLocation || !toLocation || !startDate || !endDate) {
@@ -138,7 +177,7 @@ export default function TravelForm() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-5">
       <form
         onSubmit={handleSubmit}
-        className="p-5 space-y-5 bg-white/5 border border-white/10 backdrop-blur-md rounded-xl text-white"
+        className="p-5 space-y-5 bg-white/5 border border-white/10 backdrop-blur-md rounded-xl text-white md:w-1/2"
       >
         <h2 className="text-2xl font-bold text-center">
           From Dream to Done. <br /> Let's Design Your Journey!
@@ -192,7 +231,10 @@ export default function TravelForm() {
             <input
               type="date"
               value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
+              min={today}
+              style={{ colorScheme: "dark" }}
+              max={maxDate}
+              onChange={handleStartDateChange}
               className="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -201,7 +243,10 @@ export default function TravelForm() {
             <input
               type="date"
               value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
+              style={{ colorScheme: "dark" }}
+              min={startDate || today}
+              max={maxDate}
+              onChange={handleEndDateChange}
               className="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -273,7 +318,7 @@ export default function TravelForm() {
         </button>
       </form>
       {lastItinerary && (
-        <div className="mt-8 max-w-xl w-full bg-white/5 border border-white/10 rounded-xl p-4 shadow-md text-white">
+        <div className="mt-8 md:w-1/2 w-full bg-white/5 border border-white/10 rounded-xl p-4 shadow-md text-white">
           <h3 className="text-lg font-bold mb-2">Last Planned Itinerary</h3>
           <div className="flex flex-row justify-between items-center mb-2">
             <p className="bg-white/10 border border-white/20 px-3 py-2 rounded-full text-md">
@@ -301,6 +346,34 @@ export default function TravelForm() {
             >
               View Itinerary
             </button>
+          </div>
+        </div>
+      )}
+
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 bg-opacity-60 z-50 p-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <h2 className="text-lg text-black font-bold mb-4">
+              1-Day Itinerary Warning
+            </h2>
+            <p className="mb-6 text-gray-700">
+              You requested only a 1-day itinerary. Are you sure you want to
+              proceed with the same start and end date?
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={cancelSameDay}
+                className="px-4 py-2 rounded-lg bg-gray-500 hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={proceedSameDay}
+                className="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white"
+              >
+                Proceed
+              </button>
+            </div>
           </div>
         </div>
       )}

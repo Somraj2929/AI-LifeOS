@@ -54,7 +54,7 @@ function DecisionEnginePage() {
         </section>
       )}
       {status === "results" && (
-        <section className="p-4 text-left w-full max-w-md">
+        <section className="p-4 text-left w-full md:w-1/2">
           <DecisionResults data={decisionData} />
         </section>
       )}

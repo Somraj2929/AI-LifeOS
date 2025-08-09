@@ -26,7 +26,7 @@ export default function DecisionForm({ status, onSubmit }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="px-4 pt-4 space-y-2 bg-white/5 backdrop-blur-md rounded-xl border border-white/10"
+      className="p-4 m-4 space-y-2 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 md:w-1/2"
     >
       <h2 className="text-center text-[24px] text-white font-bold mb-4">
         What decision are you trying to make?

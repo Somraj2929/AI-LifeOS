@@ -34,7 +34,7 @@ export default function PhotosCards({ placeNames = [] }) {
     );
   }
   return (
-    <div className="grid grid-cols-1 gap-6">
+    <div className="grid grid-cols-1 gap-6 md:w-1/2">
       {photos.map((place, index) => (
         <div
           key={index}

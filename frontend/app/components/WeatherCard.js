@@ -5,8 +5,14 @@ import Image from "next/image";
 export default function WeatherCard({ location, date }) {
   const [info, setInfo] = useState(null);
 
+  const formatDateISO = (date) => date.toISOString().split("T")[0];
+  const today = formatDateISO(new Date());
+
   useEffect(() => {
     if (!location || !date) return;
+
+    if (date < today) return;
+    console.log("Weather History is not available currently");
 
     const fetchWeather = async () => {
       try {
