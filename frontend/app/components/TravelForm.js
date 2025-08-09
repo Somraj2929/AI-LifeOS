@@ -174,7 +174,7 @@ export default function TravelForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-5">
+    <div className="flex flex-col items-center justify-center bg-black text-white p-5">
       <form
         onSubmit={handleSubmit}
         className="p-5 space-y-5 bg-white/5 border border-white/10 backdrop-blur-md rounded-xl text-white md:w-1/2"
